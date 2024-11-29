@@ -11,7 +11,7 @@ const createProduct = async (req: Request, res: Response) => {
       message: 'Bicycle created successfully',
       data: result,
     });
-  } catch (error: any) {
+  } catch (error: never) {
     console.error(error);
     if (error.name === 'ValidationError') {
       res.status(400).json({
@@ -41,7 +41,7 @@ const getAllProducts = async (req: Request, res: Response) => {
       message: 'Bicycles retrieved successfully',
       data: result,
     });
-  } catch (error: any) {
+  } catch (error: never) {
     console.error(error);
     res.status(500).json({
       message: error?.message,
@@ -61,7 +61,7 @@ const getAProduct = async (req: Request, res: Response) => {
       message: 'Bicycle retrieved successfully',
       data: result,
     });
-  } catch (error: any) {
+  } catch (error: never) {
     console.error(error);
     res.status(500).json({
       message: error?.message,
@@ -85,7 +85,7 @@ const updateAProduct = async (req: Request, res: Response) => {
       message: 'Bicycle updated successfully',
       data: result,
     });
-  } catch (error: any) {
+  } catch (error: never) {
     console.error(error);
     res.status(500).json({
       message: error?.message,
@@ -105,7 +105,7 @@ const deleteAProduct = async (req: Request, res: Response) => {
       message: 'Bicycle deleted successfully',
       data: result,
     });
-  } catch (error: any) {
+  } catch (error: never) {
     console.error(error);
     res.status(500).json({
       message: error?.message,
