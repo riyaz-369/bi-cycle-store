@@ -71,8 +71,33 @@ const getAProduct = async (req: Request, res: Response) => {
   }
 };
 
+const updateAProduct = async (req: Request, res: Response) => {
+  const reqData = req.body;
+  const { productId } = req.params;
+  try {
+    const result = await productService.updateAProductFromDB(
+      reqData,
+      productId,
+    );
+
+    res.status(200).json({
+      success: true,
+      message: 'Bicycle updated successfully',
+      data: result,
+    });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).json({
+      message: error?.message,
+      success: false,
+      error: error,
+    });
+  }
+};
+
 export const productController = {
   createProduct,
   getAllProducts,
   getAProduct,
+  updateAProduct,
 };
