@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { app } from './app';
 
 async function main() {
-  console.log(process.env.PORT);
+  // console.log(process.env.PORT);
   try {
     await mongoose.connect(
       'mongodb+srv://bi-cycle-zone:jyC37cb4VHeVRk9e@cluster0.308otot.mongodb.net/bi-cycle-zone?retryWrites=true&w=majority&appName=Cluster0',
