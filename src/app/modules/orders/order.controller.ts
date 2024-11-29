@@ -11,7 +11,7 @@ const createOrder = async (req: Request, res: Response) => {
       message: 'Order created successfully',
       data: result,
     });
-  } catch (error: never) {
+  } catch (error: any) {
     console.error(error);
     if (error.name === 'ValidationError') {
       res.status(400).json({
@@ -41,7 +41,7 @@ const revenueOrder = async (req: Request, res: Response) => {
       message: 'Revenue calculated successfully',
       data: { totalRevenue: result },
     });
-  } catch (error: never) {
+  } catch (error: any) {
     console.error(error);
     res.status(500).json({
       message: error?.message,
